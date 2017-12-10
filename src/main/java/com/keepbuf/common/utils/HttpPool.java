@@ -39,8 +39,14 @@ import java.util.Map;
  */
 public class HttpPool {
 
+    /**
+     * 日志
+     */
     private static Logger log = Logger.getLogger(HttpPool.class);
 
+    /**
+     * 编码
+     */
     private static final String CHAR_SET = "UTF-8";
 
     /**
@@ -91,6 +97,7 @@ public class HttpPool {
      * 创建线程安全的HttpClient
      *
      * @param config 客户端超时设置
+     * @return CloseableHttpClient
      */
     private static CloseableHttpClient getHttpsClient(RequestConfig config) {
         return HttpClients.custom().setDefaultRequestConfig(config)
@@ -104,6 +111,7 @@ public class HttpPool {
      *
      * @param url  请求地址
      * @param json 请求参数(如果为null,则表示不请求参数) return 返回结果
+     * @return 请求结果
      */
     public static String httpPost(String url, JSONObject json) {
         CloseableHttpResponse response = null;
@@ -155,6 +163,12 @@ public class HttpPool {
         return null;
     }
 
+    /**
+     * http put 请求
+     * @param url 请求地址
+     * @param json 请求body信息
+     * @return 返回结果
+     */
     public static String httpPut(String url, JSONObject json) {
         CloseableHttpResponse response = null;
         HttpPut put = null;
@@ -209,6 +223,8 @@ public class HttpPool {
      * Get方式取得URL的内容.
      *
      * @param url 访问的网址
+     * @param params get请求参数
+     * @return 返回结果
      */
     public static String httpGet(String url, Map<String, Object> params) {
         url = url + "?" + urlEncode(params);
@@ -246,6 +262,8 @@ public class HttpPool {
 
     /**
      * 将map型转为请求参数型
+     * @param data map类型请求参数
+     * @return 拼接GET的URL
      */
     private static String urlEncode(Map<String, Object> data) {
         StringBuilder sb = new StringBuilder();

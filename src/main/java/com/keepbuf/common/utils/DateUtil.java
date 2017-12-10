@@ -30,6 +30,7 @@ public class DateUtil {
 
     /**
      * 获取当前时间 yyyy-MM-dd HH:mm:ss
+     * @return 时间字符串
      */
     public static String getCurrentTime() {
         Calendar calendar = Calendar.getInstance();
@@ -38,6 +39,7 @@ public class DateUtil {
 
     /**
      * 获取当天日期YYYY-MM-DD
+     * @return 时间字符串
      */
     public static String getTodayDate() {
         Calendar calendar = Calendar.getInstance();
@@ -45,8 +47,9 @@ public class DateUtil {
     }
 
     /**
-     * 秒 -> 标准时间格式(HH:mm:ss.SSS)
+     * 秒 转换 标准时间格式(HH:mm:ss.SSS)
      * @param seconds 秒数字
+     * @return 时间字符串
      */
     public static String secToHourFormat(double seconds) {
         // 对时区做相减转换
@@ -57,6 +60,7 @@ public class DateUtil {
 
     /**
      * 获取每隔5s的时间点: 11:05 11:10
+     * @return 时间字符串
      */
     public static String getToday5SecondsDate() {
         Calendar calendar = Calendar.getInstance();
@@ -66,6 +70,11 @@ public class DateUtil {
         return dateTimeFormat.get().format(calendar.getTime());
     }
 
+    /**
+     * 根据分钟转换5分钟内的整数时间
+     * @param minute 分钟
+     * @return 0 or 5
+     */
     private static int getMinute(int minute) {
         int result = 0;
         if (0 <= minute && minute < 5) {

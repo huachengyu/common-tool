@@ -3,12 +3,18 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+    
     <groupId>com.keepbuf.common</groupId>
     <artifactId>common-tools</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <modelVersion>1.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-    <name>${project.groupId}:${project.artifactId}</name>
+    <name>${project.artifactId}</name>
     <description>Common Tools</description>
     <url>https://github.com/huachengyu/common-tool</url>
 
@@ -21,7 +27,7 @@
 
     <developers>
         <developer>
-            <name>huacy</name>
+            <name>huachengyu</name>
             <email>471508056@qq.com</email>
         </developer>
     </developers>
@@ -71,4 +77,6 @@
             <version>1.2.14</version>
         </dependency>
     </dependencies>
+
+
 </project>
